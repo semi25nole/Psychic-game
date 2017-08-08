@@ -1,9 +1,9 @@
 
 //This section holds the starting data for the game
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var wins = 0;
+var wins = 1;
 var losses = 1;
-var guesses = 0;
+var guesses = [];
 var remaining = 10;
 
 
@@ -11,8 +11,7 @@ var remaining = 10;
 function reWriteStats () {
 	document.getElementById("remaining").innerHTML = remaining;
 	remaining = 10;
-	document.getElementById("guesses").innerHTML = guesses;
-	guesses = 0;
+	guesses = [];
 }
 
 //This function recognizes the keystroke the user will make in order to guess a letter
@@ -27,25 +26,27 @@ if ((userGuess == "a")||(userGuess == "b")||(userGuess == "c")||(userGuess == "d
 (userGuess == "q")||(userGuess == "r")||(userGuess == "s")||(userGuess == "t")||(userGuess == "u")||(userGuess == "v")||(userGuess == "w")||(userGuess == "x")||
 (userGuess == "y")||(userGuess == "z")) {
 if (userGuess === computerGuess) {
+	alert("Rats Smithers, they've won!")
 	document.getElementById("wins").innerHTML = wins;
+	reWriteStats();
 	wins++;
 }
 
 // If remaining guesses reaches 0; this function will run
 else if (remaining == 0) {
-	alert("You lose");
+	alert("My plan worked out brilliantly Smithers, brilliantly");
 	document.getElementById("losses").innerHTML = losses;
 	reWriteStats();
 	losses++;
-
 }
+
 
 // Once a player begins pressing a key; this will run
 if (userGuess) {
 	document.getElementById("remaining").innerHTML = remaining;
 	remaining--;
 	document.getElementById("guesses").innerHTML = guesses;
-	guesses++;
+	guesses.push(event.key);
 
 }
 }
