@@ -1,0 +1,29 @@
+* {
+	background-color: teal;
+	color: white;
+	top: 15px;
+}
+
+h1 {
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+}
+
+p {
+	font-family: papyrus;
+	text-align: center;
+}
+
+#burns {
+	width: 600px;
+	float: left;
+	position: static;
+}
+
+div {
+	width: 300px;
+	float: right;
+	position: relative;
+	right: 600px;
+	text-align: center;
+}
